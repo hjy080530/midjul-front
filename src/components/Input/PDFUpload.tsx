@@ -10,8 +10,8 @@ import toast from 'react-hot-toast';
 
 const DropzoneContainer = styled.div<{ isDragActive: boolean }>`
   width: 100%;
-  max-width: 800px;
-  min-height: 300px;
+  max-width: 1000px;
+  min-height: 400px;
   border: 2px dashed ${({ isDragActive }) =>
     isDragActive ? theme.colors.secondary : theme.colors.border};
   border-radius: ${theme.borderRadius.lg};
@@ -30,10 +30,6 @@ const DropzoneContainer = styled.div<{ isDragActive: boolean }>`
     border-color: ${theme.colors.secondary};
     background: ${theme.colors.background};
   }
-`;
-
-const Icon = styled.div`
-  font-size: 48px;
 `;
 
 const Text = styled.p`
@@ -94,7 +90,6 @@ export default function PDFUpload() {
         <div>
             <DropzoneContainer {...getRootProps()} isDragActive={isDragActive}>
                 <input {...getInputProps()} />
-                <Icon>📄</Icon>
                 {loading ? (
                     <Text>처리 중...</Text>
                 ) : isDragActive ? (

@@ -2,14 +2,13 @@ export const theme = {
     colors: {
         // 주요 색상 - 차분한 네이비/베이지
         primary: '#2C3E50',          // 깊은 네이비
-        primaryLight: '#34495E',     // 밝은 네이비
-        primaryDark: '#1A252F',      // 어두운 네이비
+        primaryLight: '#C8E2FF',     // 밝은 네이비
+        primaryDark: '#2C3E50',      // 어두운 네이비
 
         secondary: '#95A5A6',        // 차분한 그레이
         accent: '#E8DCC4',           // 따뜻한 베이지
         accentDark: '#D4C5A9',       // 진한 베이지
 
-        // 배경
         background: '#F5F6F7',       // 연한 그레이
         surface: '#FFFFFF',
         surfaceHover: '#FAFAFA',
@@ -24,9 +23,9 @@ export const theme = {
 
         // 하이라이트 - 차분한 톤
         highlight: {
-            high: '#FFE8A3',           // 부드러운 노란색
-            medium: '#B8D4E8',         // 차분한 하늘색
-            low: '#E8E8E8',            // 연한 회색
+            high: '#FF91F6',           // 부드러운 노란색
+            medium: '#FFE8A3',         // 차분한 하늘색
+            low: '#B8D4E8',            // 연한 회색
         },
 
         // 상태 색상
@@ -34,8 +33,6 @@ export const theme = {
         error: '#C85250',            // 차분한 빨강
         warning: '#D4A574',          // 차분한 주황
         info: '#5499C7',             // 차분한 파랑
-
-        // 테두리
         border: '#E1E4E8',
         borderHover: '#BDC3C7',
     },
@@ -71,6 +68,7 @@ export const theme = {
             sans: '-apple-system, BlinkMacSystemFont, "Pretendard", "Segoe UI", sans-serif',
             serif: '"Noto Serif KR", Georgia, serif',
             mono: '"JetBrains Mono", "Fira Code", monospace',
+            joseon: '"ChosunGu", "Noto Serif KR", serif',
         },
         fontSize: {
             xs: '12px',

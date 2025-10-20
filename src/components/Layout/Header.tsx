@@ -11,11 +11,10 @@ import toast from 'react-hot-toast';
 const HeaderContainer = styled.header`
   background: ${theme.colors.surface};
   border-bottom: 1px solid ${theme.colors.border};
-  padding: ${theme.spacing.md} ${theme.spacing.xl};
+  padding: ${theme.spacing.md} ${theme.spacing.xxxl};
   display: flex;
   justify-content: space-between;
   align-items: center;
-  box-shadow: ${theme.shadows.sm};
 `;
 
 const Logo = styled.h1`

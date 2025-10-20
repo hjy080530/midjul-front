@@ -17,7 +17,7 @@ const Container = styled.div`
   mark {
     padding: 2px 4px;
     border-radius: ${theme.borderRadius.sm};
-    cursor: help;
+    cursor: pointer;
     transition: all 0.2s;
     position: relative;
 
@@ -45,7 +45,7 @@ const Container = styled.div`
     text-decoration: underline;
     text-decoration-style: dotted;
     text-decoration-color: ${theme.colors.error};
-    cursor: help;
+    cursor: pointer;
   }
 `;
 
@@ -54,8 +54,8 @@ const Tooltip = styled.div<{ x: number; y: number; visible: boolean }>`
     left: ${({ x }) => x}px;
     top: ${({ y }) => y}px;
     transform: translate(-50%, calc(-100% - 15px));
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;ㄹㄹ
+    background: gray;
+    color: white;
     padding: ${theme.spacing.md} ${theme.spacing.lg};
     border-radius: ${theme.borderRadius.lg};
     font-size: ${theme.typography.fontSize.sm};
@@ -75,7 +75,7 @@ const Tooltip = styled.div<{ x: number; y: number; visible: boolean }>`
         left: 50%;
         transform: translateX(-50%);
         border: 10px solid transparent;
-        border-top-color: #667eea;
+        border-top-color: gray;
     }
 `;
 
@@ -83,7 +83,7 @@ const TooltipWord = styled.div`
     font-weight: ${theme.typography.fontWeight.bold};
     margin-bottom: ${theme.spacing.xs};
     font-size: ${theme.typography.fontSize.md};
-    color: #FFD700;
+    color: ${theme.colors.highlight.medium};
 `;
 
 const TooltipDefinition = styled.div`
@@ -100,6 +100,7 @@ const TooltipScore = styled.div`
   opacity: 0.9;
   text-align: right;
   font-weight: ${theme.typography.fontWeight.medium};
+    font: ${theme.colors.highlight.low}
 `;
 
 const TooltipSource = styled.div`
@@ -131,7 +132,7 @@ export default function HighlightedText({ html, difficultWords }: Props) {
         const container = containerRef.current;
         if (!container) return;
 
-        const handleMouseOver = (e: MouseEvent) => {
+        const handleClick = (e: MouseEvent) => {
             const target = e.target as HTMLElement;
 
             if (target.classList.contains('keyword-tooltip')) {
@@ -170,24 +171,16 @@ export default function HighlightedText({ html, difficultWords }: Props) {
                         y: rect.top,
                     });
                 }
-            }
-        };
-
-        const handleMouseOut = (e: MouseEvent) => {
-            const target = e.target as HTMLElement;
-
-            if (target.classList.contains('keyword-tooltip') ||
-                target.classList.contains('difficult')) {
+            } else {
+                // 다른 곳 클릭하면 툴팁 닫기
                 setTooltip(null);
             }
         };
 
-        container.addEventListener('mouseover', handleMouseOver);
-        container.addEventListener('mouseout', handleMouseOut);
+        container.addEventListener('click', handleClick);
 
         return () => {
-            container.removeEventListener('mouseover', handleMouseOver);
-            container.removeEventListener('mouseout', handleMouseOut);
+            container.removeEventListener('click', handleClick);
         };
     }, [difficultWords]);
 
@@ -206,8 +199,8 @@ export default function HighlightedText({ html, difficultWords }: Props) {
                         <>
                             <TooltipScore>
                                 {tooltip.score.startsWith('난이도')
-                                    ? `⚠️ ${tooltip.score}`
-                                    : `⭐ 중요도: ${(parseFloat(tooltip.score) * 100).toFixed(0)}%`}
+                                    ? `${tooltip.score}`
+                                    : `중요도: ${(parseFloat(tooltip.score) * 100).toFixed(0)}%`}
                             </TooltipScore>
                             {!tooltip.score.startsWith('난이도') && (
                                 <TooltipSource>출처: 국립국어원 표준국어대사전</TooltipSource>

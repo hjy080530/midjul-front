@@ -119,10 +119,10 @@ export default function Dashboard() {
 
                 <TabContainer>
                     <Tab active={tab === 'text'} onClick={() => setTab('text')}>
-                        📝 텍스트 입력
+                        텍스트 입력
                     </Tab>
                     <Tab active={tab === 'pdf'} onClick={() => setTab('pdf')}>
-                        📄 PDF 업로드
+                        PDF 업로드
                     </Tab>
                 </TabContainer>
 

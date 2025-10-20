@@ -10,24 +10,49 @@ import GoogleLoginButton from '@/components/Auth/GoogleLoginButton';
 
 const Container = styled.div`
   min-height: 100vh;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   background: linear-gradient(135deg, 
-    ${theme.colors.primary} 0%, 
-    ${theme.colors.primaryLight} 50%,
-    ${theme.colors.secondary} 100%
+    ${theme.colors.primary} 30%, 
+    ${theme.colors.primaryLight} 80%
   );
   padding: ${theme.spacing.lg};
+  position: relative;
+  overflow: hidden;
+`;
+
+const BackgroundText = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: clamp(15rem, 40vw, 35rem);
+  font-weight: ${theme.typography.fontWeight.bold};
+  color: rgba(255, 255, 255, 0.12);
+  user-select: none;
+  z-index: 2;
+  white-space: nowrap;
+  letter-spacing: -0.1em;
+  line-height: 0.8;
+  overflow: hidden;
 `;
 
 const Card = styled(motion.div)`
   background: ${theme.colors.surface};
   padding: ${theme.spacing.xxxl};
   border-radius: ${theme.borderRadius.xxl};
-  box-shadow: ${theme.shadows.xl};
   max-width: 480px;
   width: 100%;
+  position: relative;
+  z-index: 10;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
 `;
 
 const Logo = styled.h1`
@@ -78,7 +103,7 @@ const Divider = styled.div`
   align-items: center;
   margin: ${theme.spacing.xl} 0;
   
-  &::before,
+  &::before
   &::after {
     content: '';
     flex: 1;
@@ -113,19 +138,10 @@ export default function Home() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
             >
-                <Logo>믿줄</Logo>
-                <Tagline>중요한 내용을 자동으로 하이라이팅하고 요약합니다</Tagline>
+                <Logo>MIDJUL</Logo>
+                <Tagline>사람답게 살자</Tagline>
 
-                <FeatureList>
-                    <FeatureItem>AI 기반 키워드 자동 추출</FeatureItem>
-                    <FeatureItem>텍스트 & PDF 지원</FeatureItem>
-                    <FeatureItem>어려운 용어 자동 설명</FeatureItem>
-                    <FeatureItem>핵심 내용 요약</FeatureItem>
-                </FeatureList>
-
-                <Divider>
-                    <span>시작하기</span>
-                </Divider>
+                <Divider></Divider>
 
                 <GoogleLoginButton />
             </Card>

@@ -113,7 +113,7 @@ export default function TextInput() {
             <TextArea
                 value={text}
                 onChange={(e) => setText(e.target.value)}
-                placeholder="분석할 텍스트를 입력하세요...&#10;&#10;예: 논문, 기사, 보고서 등의 내용을 붙여넣으세요."
+                placeholder="분석할 텍스트를 입력하세요..."
                 disabled={loading}
                 onKeyDown={(e) => {
                     // Ctrl+Enter로 제출
