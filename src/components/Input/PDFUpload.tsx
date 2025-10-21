@@ -10,7 +10,7 @@ import toast from 'react-hot-toast';
 
 const DropzoneContainer = styled.div<{ isDragActive: boolean }>`
   width: 100%;
-  max-width: 1000px;
+  min-width: 800px;
   min-height: 400px;
   border: 2px dashed ${({ isDragActive }) =>
     isDragActive ? theme.colors.secondary : theme.colors.border};

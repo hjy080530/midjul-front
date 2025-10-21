@@ -6,7 +6,8 @@ import { loginWithGoogle } from '@/lib/supabase';
 import toast from 'react-hot-toast';
 import { motion } from 'framer-motion';
 
-const GoogleButton = styled(motion.button)`
+// ✅ motion.button을 직접 사용하고, styled로 감싸지 않기
+const GoogleButtonBase = styled.button`
   width: 100%;
   padding: ${theme.spacing.lg};
   background: ${theme.colors.surface};
@@ -47,14 +48,17 @@ export default function GoogleLoginButton() {
         }
     };
 
+    // ✅ motion을 as로 적용
+    const MotionButton = motion(GoogleButtonBase);
+
     return (
-        <GoogleButton
+        <MotionButton
             onClick={handleLogin}
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
         >
             <GoogleIcon />
             Google로 시작하기
-        </GoogleButton>
+        </MotionButton>
     );
 }

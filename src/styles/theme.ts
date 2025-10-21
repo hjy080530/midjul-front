@@ -48,11 +48,11 @@ export const theme = {
     },
 
     borderRadius: {
-        sm: '4px',
-        md: '8px',
-        lg: '12px',
-        xl: '16px',
-        xxl: '24px',
+        sm: '0px',
+        md: '0px',
+        lg: '0px',
+        xl: '0px',
+        xxl: '0px',
         full: '9999px',
     },
 

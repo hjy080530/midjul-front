@@ -14,10 +14,7 @@ const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, 
-    ${theme.colors.primary} 30%, 
-    ${theme.colors.primaryLight} 80%
-  );
+  background: ${theme.colors.primary};
   padding: ${theme.spacing.lg};
   position: relative;
   overflow: hidden;
@@ -45,7 +42,8 @@ const BackgroundText = styled.div`
 
 const Card = styled(motion.div)`
   background: ${theme.colors.surface};
-  padding: ${theme.spacing.xxxl};
+    background: rgba(255, 255, 255, 0.95);
+    padding: ${theme.spacing.xxxl};
   border-radius: ${theme.borderRadius.xxl};
   max-width: 480px;
   width: 100%;
@@ -139,7 +137,7 @@ export default function Home() {
                 transition={{ duration: 0.5 }}
             >
                 <Logo>MIDJUL</Logo>
-                <Tagline>사람답게 살자</Tagline>
+                <Tagline></Tagline>
 
                 <Divider></Divider>
 
